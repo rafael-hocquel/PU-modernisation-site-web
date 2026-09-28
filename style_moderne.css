@@ -1,0 +1,863 @@
+/* Import de la police pour les titres depuis Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/*
+==============================================
+DESIGN SYSTEM
+==============================================
+Définition de tous les "design tokens" pour assurer la cohérence du site web.
+*/
+:root {
+  /* 1. Palette de Couleurs */
+  --color-primary: #30758f;
+  --color-accent: #52b4d1;
+  --color-text: #334155;
+  /* Couleur spécifique pour les éléments ayant un fond qui doit ressortir mais ou la lisibilité réduite avec --color-accent (changement préconisé par Audit Lighthouse) */
+  --color-background-accent: #297fa0;
+  --color-background: #ffffff;
+  --color-surface: #faf6ee;
+  --color-border: #aaafb4;
+  --color-text-lighter: #8d97a8;
+  --color-dark-blue: #1f293a;
+  --color-muted: #5f636a;
+
+  /* 2. Typographie */
+  --font-sans: sans-serif;
+  --font-title: "Bebas Neue", monospace;
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-h3: 1.5rem; /* 24px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h1: 3rem; /* 48px */
+
+  /* 3. Espacements */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-12: 2.5rem; /* 40px */
+  --space-16: 3rem; /* 48px */
+
+  /* 4. Rayons de bordure */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-full: 63rem; /* Les bords se rejoingnent sans faire d'ovale */
+
+  /* 5. Ombres */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* 6. Bordures */
+  --border-base: solid var(--color-border) 2px;
+  --border-accent: solid var(--color-accent) 2px;
+}
+
+/* Mode Sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #30758f;
+    --color-accent: #52b4d1;
+    --color-text: #ffffff;
+    /* Couleur spécifique au dark mode qui sera derrière les textes pour améliorer le contraste (navbar) */
+    --color-text-background: #323232;
+    --color-background: #242228;
+    --color-surface: #48464a;
+    --color-border: #aaafb4;
+    --color-muted: #c9c9c9;
+    --color-input-placeholder: #9ea0a5;
+    --color-input-background: #212121;
+  }
+}
+/*
+==============================================
+CLASSES UTILITAIRES REUTILISABLES
+==============================================
+Classes pour les éléments réutilisables comme les boutons, cartes ou autres
+*/
+
+/* Boutons */
+.button {
+  background-color: transparent;
+  border-radius: var(--radius-full);
+  border: var(--border-accent);
+  padding: var(--space-2);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  align-self: center;
+  text-wrap-mode: nowrap;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--color-accent);
+}
+
+.button-accent {
+  background-color: var(--color-background-accent);
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+
+/* Cartes */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border: var(--border-base);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
+  transition: all 300ms ease-in-out;
+}
+
+.card .card-icon {
+  /* Pas de system design car c'est une valeur spécifique qui ne sera pas réutilisée */
+  width: 3.75rem;
+  height: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-h2);
+  border-radius: var(--radius-full);
+}
+
+/* Les cartes qui possèdent la classe "card-animation" auront une animation (shadow + scale + translateY) */
+.card-animation:hover {
+  transform: scale(1.03) translateY(-0.5rem);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  /* Pas de système Design pour cette couleur car elle n'est utilisée qu'une seule et unique fois */
+  background-color: #264e60;
+  color: white;
+  padding: var(--space-6);
+}
+
+/* Différentes couleurs pour l'icone des cartes | Hors System Design car utilisée une seule et unique fois */
+.icon-primary-light {
+  background-color: #d6fafd;
+}
+
+.icon-light-pink {
+  background-color: #f0e8fb;
+}
+
+.icon-amber {
+  background-color: #fcedda;
+}
+
+.card h3 {
+  font-size: var(--font-size-xl);
+}
+
+.card p {
+  font-weight: bolder;
+  color: var(--color-muted);
+}
+
+/* Carte de contact (adresse, tel et email de l'entreprise) */
+.contact-card .contact-card-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-card .contact-card-text-container p {
+  color: white;
+  font-weight: normal;
+}
+
+.card .card-contact p {
+  color: white;
+}
+
+/* Barres Horizontales avant et après un titre */
+.decorated-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-wrap-mode: nowrap;
+}
+
+.decorated-title::before,
+.decorated-title::after {
+  content: "";
+  background-color: rgba(57, 85, 95, 0.5);
+  /* Pas d'unité relative ici car le trait est décoratif et ne doit pas dépendre de la taille de police */
+  height: 5px;
+  border-radius: var(--radius-full);
+  flex: 1;
+  margin: 1rem;
+}
+
+/*
+==============================================
+STYLES GLOBAUX DE BASE
+==============================================
+Utilisation des tokens du Design System.
+*/
+
+/* Initialisation de la page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+header,
+main,
+aside {
+  margin: var(--space-4);
+}
+
+body {
+  display: grid;
+  /* Pour forcer le footer à être tout en bas de la page, on étend le main */
+  grid-template-areas:
+    "navbar"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  row-gap: var(--space-8);
+  column-gap: 0;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#home-page {
+  grid-template-areas:
+    "navbar"
+    "header"
+    "main"
+    "aside"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+}
+
+/* Styles pour les titres de section */
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--space-6);
+  font-weight: 700;
+}
+
+/* Animation "fadeInUp" pour chaque h2 */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--font-title);
+  letter-spacing: 0.15rem;
+  word-spacing: 0.15rem;
+  animation: fadeInUp 400ms ease-in-out;
+}
+
+/*****************************************************************************************************/
+/************************************* ELEMENTS REUTILISABLES ****************************************/
+/************************************* ELEMENTS REUTILISABLES ****************************************/
+/************************************* ELEMENTS REUTILISABLES ****************************************/
+/*****************************************************************************************************/
+
+/*
+==============================================
+STYLES NAVBAR
+==============================================
+Styles liés à la navbar de la page (logo + liens de navigation)
+*/
+.navbar {
+  grid-area: navbar;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 92%;
+  margin: auto;
+  margin-top: var(--space-4);
+  padding-right: var(--space-4);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Pas de system design car c'est une valeur spécifique qui ne sera pas réutilisée */
+.navbar .logo {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+}
+
+.navbar .navbar-left-side {
+  display: flex;
+}
+
+.navbar .navbar-left-side p {
+  display: none;
+  margin: auto;
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+
+nav.navbar-links {
+  display: flex;
+  gap: var(--space-4);
+  margin: auto;
+}
+
+nav.navbar-links a {
+  /* Position relative pour pouvoir positionner le soulignement au survol par rapport aux liens */
+  position: relative;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: bolder;
+}
+
+/* Soulignement des liens (qui apparaitra au survol via la modification de la largeur (de 0 à 100%) */
+nav.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  /* Pixels pour un positionnement précis */
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: translateX(-50%);
+  transition: width 300ms ease-in-out;
+}
+
+nav.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/*
+==============================================
+STYLES FOOTER / PIED DE PAGE
+==============================================
+Styles liés au pied de la page (mentions légales & liens vers les différents réseaux sociaux)
+*/
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: min-content;
+  padding: var(--space-6);
+  background-color: var(--color-dark-blue);
+  color: var(--color-text-lighter);
+}
+
+footer nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+footer nav a {
+  text-decoration: none;
+  color: var(--color-text-lighter);
+  transition: color 300ms ease-in-out;
+}
+
+footer nav a:hover {
+  color: white;
+}
+
+/*****************************************************************************************************/
+/************************************* PAGE ACCUEIL - index.html *************************************/
+/************************************* PAGE ACCUEIL - index.html *************************************/
+/************************************* PAGE ACCUEIL - index.html *************************************/
+/*****************************************************************************************************/
+
+/*
+==============================================
+STYLES HEADER
+==============================================
+Styles liés au header de la page (titre principal, phrase d'accroche, image de présentation et boutons vers services et devis)
+*/
+
+#header-section {
+  grid-area: header;
+  /* Position relative pour que l'on puisse placer le filtre noir sur l'image par rapport au header */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 92%;
+  /* Taille de l'image d'arrière plan, sans ce paramètre des bordures grises apparaissent quand la taille du header dépasse la taille de l'image (sur les grands écrans)*/
+  max-width: 900px;
+  margin: auto;
+  border-radius: var(--radius-xl);
+  border: var(--border-base);
+  box-shadow: var(--shadow-lg);
+  /* On cache les bords de l'image qui dépasse du conteneur pour que les coins apparaissent arrondis */
+  overflow: hidden;
+}
+
+/* Léger filtre noir non-opaque pour mieux faire ressortir le texte */
+#header-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(57, 85, 95, 0.6);
+}
+
+#header-section img {
+  width: 100%;
+  display: block;
+}
+
+#header-section #header-content {
+  position: absolute;
+  /* Z-Index positif pour que le texte apparaisse au dessus du filtre noir appliqué sur l'image */
+  z-index: 1;
+  margin: var(--space-4);
+  text-align: center;
+}
+
+#header-section h1 {
+  color: var(--color-accent);
+  font-size: var(--font-size-xl);
+}
+
+#header-section h1::before {
+  content: "📺";
+  margin-right: 1rem;
+}
+
+#header-content p {
+  font-size: var(--font-size-sm);
+  color: white;
+}
+
+#header-section #header-buttons-container {
+  display: flex;
+  gap: var(--space-2);
+  width: min-content;
+  margin: auto;
+  margin-top: var(--space-2);
+}
+
+/*
+==============================================
+STYLES ASIDE
+==============================================
+Styles liés à la section "aside" située sur le côté droit de la page (à côté du header) et qui contient l'histoire de l'entreprise (A propos) et la carte de contact rapide
+*/
+aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: auto;
+  height: min-content;
+  max-width: 80%;
+}
+
+/* Conteneur qui contient la carte "histoire de l'entreprise" et la carte de contact */
+#aside-information-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+#aside-information-container h2 {
+  font-size: var(--font-size-h3);
+  text-align: center;
+}
+
+/*
+==============================================
+STYLES SECTION PRINCIPALE (MAIN)
+==============================================
+Styles liés à la section principale de la page (ce que propose l'entreprise)
+*/
+
+#company-presentation-container {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: auto;
+  padding-top: var(--space-12);
+}
+
+#company-presentation-container h2 {
+  margin-bottom: var(--space-4);
+  text-align: center;
+  font-size: var(--font-size-h3);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/*****************************************************************************************************/
+/************************************* PAGE CONTACT - contact.html ***********************************/
+/************************************* PAGE CONTACT - contact.html ***********************************/
+/************************************* PAGE CONTACT - contact.html ***********************************/
+/*****************************************************************************************************/
+
+#contact-form {
+  background-color: var(--color-surface);
+  border: var(--border-base);
+  border-radius: var(--radius-2xl);
+  margin: auto;
+  padding: var(--space-3);
+}
+
+#contact-form fieldset legend h1 {
+  font-size: var(--font-size-h2);
+}
+
+#contact-form fieldset legend h1::before {
+  content: "💬";
+  margin-right: 0.5rem;
+}
+
+#contact-form fieldset #form-description {
+  font-weight: 600;
+}
+
+#contact-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border: none;
+}
+
+#contact-form #form-input-container {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-3);
+}
+
+#contact-form .form-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+#contact-form .form-input label {
+  font-weight: bolder;
+  font-size: var(--font-size-lg);
+}
+
+#contact-form fieldset input,
+#contact-form fieldset textarea {
+  padding: var(--space-2);
+  border: var(--border-base);
+  border-radius: var(--radius-lg);
+}
+
+#contact-form fieldset #form-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: auto;
+}
+
+#contact-form fieldset #form-footer p {
+  text-align: center;
+}
+
+/*****************************************************************************************************/
+/************************************* PAGE SERVICES - services.html *********************************/
+/************************************* PAGE SERVICES - services.html *********************************/
+/************************************* PAGE SERVICES - services.html *********************************/
+/*****************************************************************************************************/
+#service-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin: auto;
+  padding: var(--space-3);
+}
+
+#service-section-container h1 {
+  margin: auto;
+}
+
+#service-section-container h1::before {
+  content: "🏷️";
+  margin-right: 1rem;
+}
+
+#service-section-container #service-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface);
+  padding: var(--space-3);
+  padding-bottom: 0;
+  border: var(--border-base);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all 300ms ease-in-out;
+}
+
+.service-card button {
+  width: 10rem;
+  transform: translateY(50%);
+  margin: auto;
+  box-shadow: var(--shadow-md);
+}
+
+.service-card .service-card-upper-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: auto;
+}
+
+.service-card .service-card-upper-section img {
+  height: 5rem;
+  width: 5rem;
+  margin: auto;
+  border-radius: var(--radius-xl);
+}
+
+.service-card p {
+  text-align: center;
+}
+
+/* Tarifs */
+#pricing-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+}
+
+#pricing-section table {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+#pricing-table-header-banner {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+#pricing-section table th,
+td {
+  border: var(--border-base);
+  padding: var(--space-2);
+}
+
+#pricing-section table tr:nth-child(even),
+thead {
+  background-color: var(--color-surface);
+}
+
+#pricing-section table caption {
+  margin-top: var(--space-4);
+}
+
+/**************************************************************************************/
+/************************************* RESPONSIVE *************************************/
+/************************************* RESPONSIVE *************************************/
+/************************************* RESPONSIVE *************************************/
+/**************************************************************************************/
+
+@media screen and (min-width: 768px) {
+  /* Responsive du layout global de la page */
+  #home-page {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "navbar navbar"
+      "header aside"
+      "main main"
+      "footer footer";
+  }
+
+  aside {
+    margin: 0;
+  }
+
+  main {
+    margin-right: 0;
+  }
+
+  /* Responsive des composants réutilisables */
+  .decorated-title {
+    margin: var(--space-16);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card-container {
+    flex-direction: row;
+    gap: var(--space-6);
+    margin: var(--space-6);
+  }
+
+  .button {
+    padding: var(--space-3);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* Responsive de la Navbar */
+  .navbar {
+    width: 70%;
+  }
+  nav.navbar-links {
+    gap: var(--space-8);
+    margin: 0;
+  }
+
+  .navbar .navbar-left-side p {
+    display: inline;
+  }
+
+  /* Responsive du footer */
+  footer nav {
+    flex-direction: row;
+    gap: var(--space-6);
+  }
+  /* Responsive du Header */
+  #header-section h1 {
+    font-size: var(--font-size-h2);
+  }
+
+  #header-section p {
+    font-weight: bolder;
+    font-size: var(--font-size-lg);
+  }
+
+  #header-section p {
+    margin-top: var(--space-8);
+  }
+
+  /* Responsive de la section main / principale */
+  #company-presentation-container h2 {
+    font-size: var(--font-size-h2);
+    gap: var(--space-6);
+  }
+
+  /*********** RESPONSIVE PAGE CONTACT **********/
+
+  /* Responsive du formulaire */
+  #contact-form {
+    max-width: 72%;
+  }
+
+  #contact-form #form-input-container {
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #form-input-textarea {
+    grid-column: span 2;
+  }
+
+  #form-input-textarea textarea {
+    min-height: 15rem;
+    resize: none;
+  }
+
+  #contact-form fieldset #form-footer {
+    max-width: 50%;
+  }
+
+  /*********** RESPONSIVE PAGE SERVICES **********/
+  #pricing-section table {
+    width: 90%;
+  }
+}
+
+/* Ajustements supplémentaires en mode sombre suite aux recommendations de "Audit Lighthouse" catégorie "Accessibilité" (contraste entre le fond et le texte) */
+@media (prefers-color-scheme: dark) {
+  .navbar nav,
+  .navbar .navbar-left-side p {
+    background-color: var(--color-text-background);
+    padding: var(--space-4);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .navbar nav a,
+  .navbar .navbar-left-side p {
+    color: var(--color-accent);
+  }
+
+  #contact-form h1 {
+    color: var(--color-accent);
+  }
+
+  .form-input input,
+  .form-input textarea {
+    background-color: var(--color-input-background);
+    color: white;
+  }
+}
+
+.form-input input::placeholder,
+.form-input textarea::placeholder {
+  color: var(--color-input-placeholder);
+}

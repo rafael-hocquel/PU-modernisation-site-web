@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tag ajouté suite aux recommendations de "Audit Lighthouse" catégorie "SEO" -->
+    <meta
+      name="description"
+      content="Réparation, sauvegarde, nettoyage d'ordinateur Vintage sur Paris."
+    />
+    <link rel="stylesheet" href="./style_moderne.css" />
+    <title>Accueil - Rétro-PC Dépannage</title>
+  </head>
+  <!-- ID utilisé pour le grid layout spécifique à la page d'accueil -->
+  <body id="home-page">
+    <!-- Barre de Navigation -->
+    <div class="navbar">
+      <!-- Côté Gauche -->
+      <div class="navbar-left-side">
+        <a href="./index.html">
+          <img
+            class="logo"
+            src="./images/logo-retro-pc-depannage.png"
+            alt="Logo de l'entreprise 'Rétro PC Dépannage'"
+          />
+        </a>
+        <p>Rétro-PC Dépannage</p>
+      </div>
+
+      <!-- Côté Droit - Liens de Navigation -->
+      <nav class="navbar-links">
+        <a href="./index.html">Accueil</a>
+        <a href="./services.html">Services</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Header (Image avec titre principal et boutons vers les services & devis) -->
+    <header id="header-section">
+      <!-- Image de Fond -->
+      <picture>
+        <source srcset="./images/commodore-64.webp" type="image/webp" />
+        <img
+          src="./images/comodore-64.jpg"
+          alt="Image d'un Ordinateur de type 'Commodore 64'"
+        />
+      </picture>
+
+      <!-- Textes -->
+      <div id="header-content">
+        <h1>Vos vieux ordis ont de l'avenir</h1>
+        <p>Réparation, restauration et modernisation de matériel vintage.</p>
+
+        <!-- Boutons -->
+        <div id="header-buttons-container">
+          <a href="./services.html" class="button">Nos Services</a>
+          <a href="./contact.html" class="button button-accent"
+            >Demander un Devis</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenu Principal (Présentation de ce que fait l'entreprise dans les grandes lignes) -->
+    <main id="company-presentation-container">
+      <h2 class="decorated-title">Pourquoi Rétro PC ?</h2>
+
+      <!-- Cartes -->
+      <div class="card-container">
+        <!-- Carte Réparation -->
+        <div class="card card-animation">
+          <p class="card-icon icon-primary-light">🛠️</p>
+
+          <!-- Titre & Description -->
+          <h3>Réparation</h3>
+          <p>Réparation, restauration et modernisation de matériel vintage.</p>
+        </div>
+
+        <!-- Carte Sauvegarde -->
+        <div class="card card-animation">
+          <!-- Icone -->
+          <p class="card-icon icon-light-pink">💾</p>
+
+          <!-- Titre & Description -->
+          <h3>Sauvegarde</h3>
+          <p>Récupération de données sur disquettes et disques durs IDE.</p>
+        </div>
+
+        <!-- Carte Nettoyage -->
+        <div class="card card-animation">
+          <!-- Icone -->
+          <p class="card-icon icon-amber">✨</p>
+
+          <!-- Titre & Description -->
+          <h3>Nettoyage</h3>
+          <p>Dépoussiérage complet et blanchiment des plastiques jaunis.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Section d'Informations de l'Entreprise (Historique & Contact Rapide) -->
+    <aside id="aside-information-container">
+      <div id="aside-information-card-container">
+        <!-- Carte 'A Propos' -->
+        <div class="card">
+          <h3>À Propos</h3>
+          <hr />
+          <p>
+            Retro-PC est né de la passion de redonner vie aux machines qui ont
+            marqué l'histoire de l'informatique.
+          </p>
+        </div>
+
+        <!-- Carte de contact -->
+        <div class="card contact-card">
+          <h3>Contact Rapide</h3>
+          <hr />
+          <address>
+            <div class="contact-card-text-container">
+              <p>📍 12 Rue du 8 Bit, Paris</p>
+              <p>📞 01 23 45 67 89</p>
+              <p>📨 contact@retropc.com</p>
+            </div>
+          </address>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Footer contenant les mentions légales et les liens vers les réseaux de l'entreprise -->
+    <footer>
+      <!-- Partie Gauche -->
+      <p>© 2025 Retro-PC Dépannage. Tous droits réservés.</p>
+
+      <!-- Partie Droite -->
+      <nav>
+        <a href="#lienTwitterRetroPC">Twitter</a>
+        <a href="#lienFacebookRetroPC">Facebook</a>
+        <a href="#lienInstagramRetroPC">Instagram</a>
+      </nav>
+    </footer>
+  </body>
+</html>

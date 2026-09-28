@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style_moderne.css" />
+    <meta
+      name="description"
+      content="Une question ou demande de devis ? Contactez l'équipe de Rétro-PC pour obtenir une réponse."
+    />
+    <title>Nous Contacter - Rétro-PC Dépannage</title>
+  </head>
+  <body>
+    <!-- Barre de Navigation -->
+    <div class="navbar">
+      <!-- Côté Gauche -->
+      <div class="navbar-left-side">
+        <a href="./index.html">
+          <img
+            class="logo"
+            src="./images/logo-retro-pc-depannage.png"
+            alt="Logo de l'entreprise 'Rétro PC Dépannage'"
+          />
+        </a>
+        <p>Rétro-PC Dépannage</p>
+      </div>
+
+      <!-- Côté Droit - Liens de Navigation -->
+      <nav class="navbar-links">
+        <a href="./index.html">Accueil</a>
+        <a href="./services.html">Services</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Formulaire -->
+    <main>
+      <form id="contact-form">
+        <fieldset>
+          <!-- En-tête du formulaire -->
+          <legend><h1>Contactez-nous</h1></legend>
+          <p id="form-description">
+            Pour toute question ou demande de devis, remplissez le formulaire
+            ci-dessous
+          </p>
+
+          <!-- Champs -->
+          <div id="form-input-container">
+            <!-- Champ Nom -->
+            <div class="form-input">
+              <label for="input-name">Nom</label>
+              <input
+                id="input-name"
+                name="lastname"
+                type="text"
+                placeholder="ex. Dupont"
+                required
+              />
+            </div>
+
+            <!-- Champ Prénom -->
+            <div class="form-input">
+              <label for="input-firstname">Prénom</label>
+              <input
+                id="input-firstname"
+                name="firstname"
+                type="text"
+                placeholder="ex. Jean"
+                required
+              />
+            </div>
+
+            <!-- Champ Telephone -->
+            <div class="form-input">
+              <label for="input-phone">Téléphone</label>
+              <input
+                id="input-phone"
+                name="phone"
+                type="tel"
+                placeholder="ex. 01 23 45 67 89"
+                required
+              />
+            </div>
+
+            <!-- Champ email -->
+            <div class="form-input">
+              <label for="input-email">Email</label>
+              <input
+                id="input-email"
+                name="email"
+                type="email"
+                placeholder="ex. jean.dupont@gmail.com"
+                required
+              />
+            </div>
+
+            <!-- Champ message -->
+            <div id="form-input-textarea" class="form-input">
+              <label for="text-area">Message</label>
+              <textarea
+                id="text-area"
+                name="message"
+                rows="5"
+                placeholder="Saisissez votre message / demande ici..."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div id="form-footer">
+            <p>Nous répondons dans un délai de 2 à 3 jours ouvrés.</p>
+
+            <!-- Envoi des résultats-->
+            <button type="submit" class="button button-accent">Envoyer</button>
+          </div>
+        </fieldset>
+      </form>
+    </main>
+
+    <!-- Footer contenant les mentions légales et les liens vers les réseaux de l'entreprise -->
+    <footer>
+      <!-- Partie Gauche -->
+      <p>© 2025 Retro-PC Dépannage. Tous droits réservés.</p>
+
+      <!-- Partie Droite -->
+      <nav>
+        <a href="#lienTwitterRetroPC">Twitter</a>
+        <a href="#lienFacebookRetroPC">Facebook</a>
+        <a href="#lienInstagramRetroPC">Instagram</a>
+      </nav>
+    </footer>
+  </body>
+</html>
