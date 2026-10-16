@@ -4,7 +4,7 @@ Site vitrine de trois pages pour une entreprise de réparation d'ordinateurs
 vintage, refait entièrement à partir d'une unique page HTML dépassée.  
 Résultats mesurés : **100/100 en Performance, Accessibilité et SEO** sur toutes les pages.
 
-**Auteur :** Rafaël HOCQUE
+**Auteur :** Rafaël HOCQUEL
 **Version :** 1.0 - janvier 2026
 
 ## L'objectif
