@@ -1,53 +1,46 @@
-# Rétro-PC Dépannage — refonte d'un site vitrine
+# Rétro-PC Dépannage — Refonte de site vitrine
 
-Site vitrine de trois pages pour une entreprise de réparation d'ordinateurs
-vintage, refait entièrement à partir d'une unique page HTML dépassée.  
-Résultats mesurés : **100/100 en Performance, Accessibilité et SEO** sur toutes les pages.
+Refonte complète du site vitrine d'une boutique de réparation d'ordinateurs vintage. Le projet partait d'une unique page HTML vieillissante et non maintenable pour aboutir à un site statique de trois pages, pensé pour l'accessibilité, le responsive et la performance.
 
-**Auteur :** Rafaël HOCQUEL
-**Version :** 1.0 - janvier 2026
+Le site obtient **100/100 en Performance, Accessibilité et SEO** sur Lighthouse (en thème clair comme en thème sombre).
 
-## L'objectif
+## Pourquoi cette refonte ?
 
-Transformer un site désuet en un site **responsive**, **accessible** (utilisable
-par les personnes qui naviguent à l'aide d'un lecteur d'écran) et **« SEO friendly »**
-(mieux classé dans les moteurs de recherche).
-
-| # | Problème de départ | Conséquence |
-|---|--------------------|-------------|
-| 1 | Design dépassé | L'image donnée à l'entreprise ne donnait pas confiance |
-| 2 | Manque d'accessibilité | Site non responsive, non adapté aux lecteurs d'écran |
-| 3 | Code confus | Tout le contenu dans un seul fichier HTML, impossible à maintenir |
+Le site d'origine cumulait plusieurs dettes techniques et visuelles :
+- **Code monolithique :** Tout le contenu était entassé dans un seul fichier HTML sans structure sémantique claire.
+- **Aucune adaptation mobile :** Mise en page figée, inutilisable sur petit écran.
+- **Accessibilité absente :** Contrastes insuffisants, images sans attributs `alt`, champs de formulaire non reliés à leurs labels.
 
 ## Ce qui a changé
 
-| Ce qui change | Avant | Après |
-|---------------|-------|-------|
-| Design | Palette et typographie dépassées | Couleurs, titres et espacements modernes, centralisés en variables |
-| Structure | Une seule page HTML | Un fichier par page : Accueil, Services, Contact |
-| Responsive | Absent | Mobile-first, deux colonnes à partir de 768 px |
-| Thème sombre | Absent | Automatique selon les préférences du système, sans JavaScript |
-| Accessibilité | Images sans texte alternatif, champs sans label | Tout est décrit et relié, structure sémantique complète |
-| Contraste | Insuffisant sur les zones colorées | Fond plus sombre sous les textes, corrigé après l'audit Lighthouse |
-| Images | JPEG et PNG lourds | WebP avec repli JPEG : 196 ko → 98 ko sur l'image d'accueil |
+| Axe | Avant | Après |
+| :--- | :--- | :--- |
+| **Architecture** | Une seule page fourre-tout | Découpage en 3 pages distinctes (`Accueil`, `Services`, `Contact`) |
+| **Design & Thème** | Styles en dur, couleurs datées | Variables CSS centralisées + thème sombre automatique |
+| **Responsive** | Absent | Approche *mobile-first*, passage sur deux colonnes à partir de `768px` |
+| **Accessibilité** | Balisage générique, aucun label | HTML sémantique complet, labels explicites, navigation au lecteur d'écran |
+| **Contraste** | Texte illisible sur les fonds colorés | Assombrissement des zones d'arrière-plan suite à l'audit Lighthouse |
+| **Médias** | JPEG et PNG bruts | Conversion en WebP avec fallback JPEG (ex. `196 Ko` → `98 Ko` sur la bannière d'accueil) |
 
-## Les pages
+## Structure du site
 
-| Page | Contenu |
-|------|---------|
-| **Accueil** | Bannière avec photo et accroche, trois cartes de savoir-faire, encart « À propos » et contact rapide |
-| **Services** | Diagnostic complet, réparation matérielle, installation d'un système, puis grille de tarifs |
-| **Contact** | Formulaire de demande de devis : nom, prénom, téléphone, email, message |
+- **Accueil (`index.html`) :** Bannière principale, présentation des trois grands pôles d'expertise, encart « À propos » et accès rapide au contact.
+- **Services :** Détail des prestations (diagnostic, réparation matérielle, installation d'OS) accompagné d'une grille tarifaire claire.
+- **Contact :** Formulaire de demande de devis accessible (nom, prénom, téléphone, email, message).
 
+## Audit Lighthouse
 
-## Le résultat
+Tests effectués sur les trois pages du site, avec validation des contrastes sur les deux thèmes (clair et sombre) :
 
-| Catégorie | Score |
-|-----------|-------|
-| Performance | **100 / 100** |
-| Accessibilité | **100 / 100** |
-| Bonnes pratiques | 96 / 100 |
-| SEO | **100 / 100** |
+- **Performance :** 100 / 100
+- **Accessibilité :** 100 / 100
+- **Bonnes pratiques :** 96 / 100
+- **SEO :** 100 / 100
 
-Mesuré avec Lighthouse sur les trois pages, en mode clair comme en mode sombre :
-le score d'accessibilité reste à 100 dans les deux thèmes.
+## Aperçu en local
+
+Le projet étant en HTML/CSS pur sans étape de build, il suffit d'ouvrir `index.html` dans un navigateur ou de lancer un serveur local :
+
+```bash
+git clone https://github.com/rafael-hocquel/PU-modernisation-site-web.git
+cd PU-modernisation-site-web
