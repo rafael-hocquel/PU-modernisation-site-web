@@ -1,4 +1,5 @@
 # Rétro-PC Dépannage — Refonte de site vitrine
+*Note : Projet réalisé avant ma prise en main de Git et importé a posteriori sur ce dépôt pour archivage (d'où l'absence d'historique de commits).*
 
 Refonte complète du site vitrine d'une boutique de réparation d'ordinateurs vintage. Le projet partait d'une unique page HTML vieillissante et non maintenable pour aboutir à un site statique de trois pages, pensé pour l'accessibilité, le responsive et la performance.
 
